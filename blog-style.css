@@ -1,0 +1,67 @@
+body {
+	font-family: Helvetica, sans-serif;
+
+}
+
+a:link {
+	color: #3CA1DA;
+}
+
+a:hover {
+	color: #CAE1FF;
+}
+
+a:active {
+	color: #CAE1FF;
+}
+
+a:visited {
+	color: #708090;
+}
+
+h1, h3 {
+	font-weight: lighter;
+}
+#logo {
+	max-width: 10%;
+	max-height: 17%;
+	padding-right: 1%;
+	border-right: 1px solid #3CA1DA;
+	display: block;
+	float: left;
+}
+
+#head-sub {
+	display: inline-block;
+	margin-left: 3%;
+}
+
+.container {
+	max-width: 90%;
+	padding-left: 15%;
+	display: block;
+
+}
+
+h4, p, a {
+	text-align: left;
+	font-weight: lighter;
+	text-decoration: none;
+}
+
+h4 {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+.post {
+	max-width: 100%;
+
+
+}
+
+.featured {
+	max-width: 100%
+}
+
+#end {
+	padding-top: 7%;
+}
