@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:900);
+
+body {
+	font-family: Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+h3, h5, p {
+	color: #8C8C8C;
+}
+
+#logo {
+	max-width: 10%;
+	max-height: 17%;
+	display: block;
+	margin-top: 1%;
+	border-right: 1px solid #3CA1DA;
+}
+
+#title-block {
+	display: inline-block;
+	text-align: left;
+	margin-left: 10%;
+	line-height: 60%;
+}
+
+#title {
+	font-family: "Raleway", sans-serif;
+	font-size: 3em;
+	color: #5C5C5C;
+}
+
+#subtitle {
+	font-weight: lighter;
+	font-size: 2.0em;
+	color: #A3A3A3;
+}
+
+.container {
+	width: 90%;
+	padding: 0 10% 10% 10%;
+	display: block;
+}
+
+#blogs {
+	width: 90%;
+	line-height: 50%;
+	text-decoration: none;
+}
+
+#blogs h3 {
+	font-size: 1.5em;
+	font-weight: lighter;
+	color: #3CA1DA;
+}
+
+#blogs h2 {
+	font-family: "Raleway", Helvetica, sans-serif;
+	font-size: 2em;
+	color: #5C5C5C;
+}
+
+.post {
+	margin: 5% 0 5% 0;
+	background-color: 
+}
+
+.post a {
+	color: #3CA1DA;
+	text-decoration: none;
+}
+
+#bio {
+	width: 90%;
+}
+
+#bio h2 {
+	font-family: "Raleway", Helvetica, sans-serif;
+	font-size: 2em;
+	color: #5C5C5C;
+}
