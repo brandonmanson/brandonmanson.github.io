@@ -12,8 +12,9 @@ h3, h5, p {
 #logo {
 	max-width: 10%;
 	max-height: 17%;
+	padding-right: 1%;
 	display: block;
-	margin-top: 1%;
+	margin-top: 3%;
 	border-right: 1px solid #3CA1DA;
 }
 
@@ -22,6 +23,7 @@ h3, h5, p {
 	text-align: left;
 	margin-left: 10%;
 	line-height: 60%;
+
 }
 
 #title {
