@@ -16,6 +16,7 @@ h3, h5, p {
 	display: block;
 	margin-top: 3%;
 	border-right: 1px solid #3CA1DA;
+	position: relative;
 }
 
 #title-block {
