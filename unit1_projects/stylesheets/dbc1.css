@@ -1,0 +1,16 @@
+body {
+	font-family: Helvetica, sans-serif;
+	background-color: #F8F8FF;
+}
+
+a {
+	color: #4682B4;
+}
+
+.colored-header {
+	color: #FF6347;
+}
+
+#beer-list {
+	color: #FF6347;
+}

@@ -1,0 +1,32 @@
+#wrapper {
+	margin: 2em;
+}
+
+header {
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+footer {
+	clear: both;
+}
+@media (min-width: 750px) { 
+	.sidebar {
+		width: 30%;
+		float: right;
+	}
+	.content {
+		width: 70%;
+		float: left;
+	}
+}
+
+@media (max-width: 749px) {
+	.sidebar {
+		width: 100%
+	}
+	.content {
+		width: 100%
+	}
+
+}
