@@ -27,21 +27,17 @@ h3 {
 }
 
 #logo {
-	max-width: 10%;
-	max-height: 17%;
-	padding-right: 1%;
-	margin-top: 3%;
-	border-right: 1px solid #3CA1DA;
-	display: block;
-	float: left;
+	width: 15%;
+	padding: 1%;
+	position: fixed;
+	background: white;
+	border-right: solid 1px #3CA1DA;
 }
 
 #head-sub {
-	display: inline-block;
-	margin-left: 3%;
-	padding-bottom: 5%;
-	padding-right: 5%;
-	text-align: center;
+	margin: 0 auto;
+	text-align: right;
+	float: right;
 }
 
 #sub {
@@ -49,10 +45,8 @@ h3 {
 }
 
 .container {
+	margin: 0 auto;
 	max-width: 90%;
-	padding-left: 12%;
-	padding-right: 12%;
-	display: block;
 
 }
 
@@ -91,7 +85,9 @@ h5 {
 }
 
 .featured {
-	max-width: 100%
+	max-width: 100%;
+	margin: 0 auto;
+	padding-top: 5%;
 }
 
 #end {

@@ -1,0 +1,84 @@
+.wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+
+header {
+	width: 100%;
+	border-bottom: 1px solid #778899;
+	display: block;
+	margin-bottom: 10%;
+}
+
+#logo {
+	display: block;
+	width: 10%;
+	padding: 1%;
+	position: fixed;
+	background: white;
+}
+
+header h1 {
+	text-align: right;
+}
+#main img {
+		width: 100%;
+	}
+
+#listen {
+	width: 50%;
+	float: left;
+	text-align: left;
+	display: block;
+}
+
+#listen img {
+	width: 100%;
+}
+
+#brewbox {
+	width: 50%;
+	float: right;
+	text-align: left;
+	display: block;
+}
+
+#brewbox img {
+	width: 100%;
+}
+
+footer {
+	clear: both;
+	color: #F5F5F5;
+	background: #696969;
+	padding: 5% 0; 
+	text-align: center;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 480px) {
+
+	#listen {
+		width: 100%;
+	}
+
+	#brewbox {
+		width: 100%;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+
+	#logo {
+		display: block;
+		position: relative;
+		margin: auto;
+		width: 15%;
+	}
+
+	header h1 {
+		text-align: center;
+	}
+}
