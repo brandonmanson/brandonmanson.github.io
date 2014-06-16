@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:900);
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,400italic);
 
 body {
 	font-family: Helvetica, sans-serif;
@@ -9,63 +10,67 @@ h3, h5, p {
 	color: #8C8C8C;
 }
 
+header {
+	width: 100%;
+	position: fixed;
+	background: white;
+	z-index: 2;
+	top: 0;
+}
+
 #logo {
-	max-width: 10%;
-	max-height: 17%;
+	width: 5%;
 	padding-right: 1%;
+	margin: 2% auto;
 	display: block;
-	margin-top: 3%;
-	border-right: 1px solid #3CA1DA;
-	position: relative;
-}
-
-#title-block {
-	display: inline-block;
-	text-align: left;
-	margin-left: 10%;
-	line-height: 60%;
-
-}
-
-#title {
-	font-family: "Raleway", sans-serif;
-	font-size: 3em;
-	color: #5C5C5C;
-}
-
-#subtitle {
-	font-weight: lighter;
-	font-size: 2.0em;
-	color: #A3A3A3;
 }
 
 .container {
+	margin: 0 auto;
 	width: 90%;
-	padding: 0 10% 10% 10%;
-	display: block;
+	margin-top: 20%; 
 }
 
+#intro {
+	text-align: center;
+	margin-bottom: 30%;
+}
+
+#intro h1 {
+	font-family: "Raleway", Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 3.0em;
+}
+
+#intro h3 {
+	font-family: "Arvo", serif;
+	font-size: 2.75em;
+	color: #8C8C8C;
+}
 #blogs {
-	width: 90%;
+	width: 100%;
 	line-height: 50%;
 	text-decoration: none;
+	margin-bottom: 10%;
 }
 
 #blogs h3 {
 	font-size: 1.5em;
-	font-weight: lighter;
+	font-family: "Arvo", serif;
 	color: #3CA1DA;
 }
 
 #blogs h2 {
 	font-family: "Raleway", Helvetica, sans-serif;
-	font-size: 2em;
+	font-size: 2.5em;
 	color: #5C5C5C;
+	text-align: center;
 }
 
 .post {
 	margin: 5% 0 5% 0;
-	background-color: 
+	width: 100%;
+	text-align: center;
 }
 
 .post a {
@@ -74,11 +79,23 @@ h3, h5, p {
 }
 
 #bio {
-	width: 90%;
+	width: 100%;
 }
 
 #bio h2 {
 	font-family: "Raleway", Helvetica, sans-serif;
-	font-size: 2em;
+	font-size: 2.5em;
 	color: #5C5C5C;
+	text-align: center;
+}
+
+#bio h3 {
+	font-family: "Arvo", sans-serif;
+	font-size: 2.25em;
+	text-align: center;
+	color: #3CA1DA;
+}
+
+#bio p {
+	text-align: center;
 }
