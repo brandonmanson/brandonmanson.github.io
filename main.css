@@ -19,7 +19,7 @@ header {
 }
 
 #logo {
-	width: 5%;
+	width: 10%;
 	padding-right: 1%;
 	margin: 2% auto;
 	display: block;
@@ -79,7 +79,8 @@ header {
 }
 
 #bio {
-	width: 100%;
+	width: 75%;
+	margin: 0 auto;
 }
 
 #bio h2 {
