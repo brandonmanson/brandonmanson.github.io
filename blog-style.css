@@ -67,7 +67,7 @@ h4 {
 	color: #5C5C5C;
 }
 
-p, a {
+.post p, a {
 	font-size: 1.5em;
 }
 
