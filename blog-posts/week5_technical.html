@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>Exploring Ruby Classes with College Basketball</title>
+			<meta charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href="../blog-style.css">
+		</head>
+		<body>
+			<header>
+				<a href="../index.html"><img id="logo"src="../b-logo.png"></a>
+			</header>
+			<div id="headline">
+				<h1>Ruby Classes and College Basketball</h1>
+				<h3>Using Ruby classes to access information about starting lineups</h3>
+			</div>
+			<div class="container">
+			<img class="featured" src="">
+			<section class="post">
+				<article>
+					<p>Ruby is a great language for many reasons: easy syntax, it's object-oriented and you can accomplish a lot with just a little code. The most effective way of tying all of these aspects together is grouping data into classes.</p>
+					<h4>What the heck is a class?</h4>
+					<p>A class is a structure that binds data and functionality together, allowing you to easily create new objects that inherit data and functionality.</p>
+					<p>Let's look at this in a more comprehensive way. Let's say you wanted to quickly create a bracket for a basketball tournament that included the starting five players for each team.</p>
+					<h4>Let's make one</h4>
+					<p>Let's create our class</p>
+					<embed src="class_def.rb" width="100%">
+					<p>Now we need to make it so that any new instance of BasketballTeam can take five players and make that data accessible. I'll expand on that in a minute.</p>
+					<embed src="initialize_def.rb" width="100%">
+					<p>Now let's make it so that you can quickly access each player's name by position (i.e. Point guard for Michigan State. Which makes me a little sad. He would have been an All-American if hadn't hurt his wrist). We'll define methods point_guard, shooting_guard, small_forward, forward and center that, when called for a new instance of class BasketballTeam, will return the name of the player.</p>
+					<embed src="methods_def.rb" width="100%">
+					<p>Now let's create a few teams and grab individual players.</p>
+					<embed src="basketball_team_class.rb" width="100%">
+					<p>This is a simple demonstration of how a class works, but the benefits are obvious: we are making our code much more DRY and allowing ourselves tons of flexibility to change and upgrade our class later on as our needs change.</p>
+				</article>
+				<span id="end"><a href="../index.html">Take me back >></a></span>
+			</section>
+			</div>
+
+		</body>
+	</html>
