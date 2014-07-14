@@ -1,0 +1,189 @@
+	<html>
+		<head>
+			<title>Ruby Class Methods vs. Instance Methods</title>
+			<meta charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href="../blog-style.css">
+		</head>
+		<body>
+			<header>
+				<a href="../index.html"><img id="logo"src="../b-logo.png"></a>
+			</header>
+			<div id="headline">
+				<h1>Ruby Class Methods</h1>
+				<h3>What they are and when to use them</h3>
+			</div>
+			<div class="container">
+			<!-- <img class="featured" src=""> -->
+			<section class="post">
+				<article>
+					<p>If you're reading this post, you're probably familiar with Ruby classes; they're a fundamental part of designing object-oriented programs and are a very convenient and powerful way to store data and functionality for objects. Last week I covered some basics about <a href="http://http://brandonmanson.github.io/blog-posts/week5_technical.html">classes and methods</a>. This week I'm going to go more in-depth about class methods: how they differ from instance methods and when and how to use them.</p>
+					<h4>Class Methods vs. Instance Methods</h4>
+					<p>The difference looks very subtle in the actual code but is significantly different in execution. Take a look at the code below:</p>
+					<div class = "codeblock">
+						<code>
+							class newClass
+							<blockquote>
+								def self.classMethod
+								<blockquote>
+									puts "Class method"
+								</blockquote>
+								end
+								<br>
+								<br>
+								def instanceMethod
+								<blockquote>
+									puts "Instance method"
+								</blockquote>
+								end
+							</blockquote>
+							end
+						</code>
+					</div>
+					<p>Did you spot the difference? Class methods are called on the class, or self. This means that this method can be used on all instances of this class.</p>
+					<p>The instance method, however, is called on an instance of that class, meaning it can't be called without a new or existing instance of that class. Take a look at the code below to see what happens:</p>
+					<div class = "codeblock">
+						<code>
+							class NewClass
+							<blockquote>
+								def self.classMethod
+								<blockquote>
+									puts "Class method"
+								</blockquote>
+								end
+								<br>
+								<br>
+								def instanceMethod
+								<blockquote>
+									puts "Instance method"
+								</blockquote>
+								end
+							</blockquote>
+							end
+							<br>
+							<br>
+							NewClass.classMethod #-> "Class method"
+							<br>
+							NewClass.instanceMethod #-> NoMethodError: undefined method 'instanceMethod' for NewClass:Class
+							<br>
+							NewClass.new.instanceMethod #-> "Instance method"
+							<br>
+							NewClass.new.classMethod #-> NoMethodError: undefined method 'classMethod' for #NewClass:0x1e820
+							<br>
+						</code>
+					</div>
+					<p>We called a class method on our class, which worked perfectly. However, when we tried to call an instance method on the class, we weren't so lucky.</p>
+					<p>We saw similar results when defining a new instance of our class and calling methods on it. We were able to get the instance method to work but were unable to call the class method on it.</p>
+					<h4>When to use class methods</h4>
+					<p>As a very broad and general rule, class methods are used when you aren't dealing with anything specific to an instance. So if we use last week's basketball teams as an example, you could write a class method that defines the makeup of a starting lineup: point guard, shooting guard, small forward, forward and center. These are universal in every instance of the basketball team class, so we could define it at the class level.</p>
+					<div class="codeblock">
+						<code>
+							class BasketballTeam
+							<blockquote>
+								def self.positions
+								<blockquote>
+									puts "Point guard, shooting guard, small forward, forward, center"
+								</blockquote>
+								end
+							</blockquote>
+							end
+							<br>
+							<br>
+							BasketballTeam.positions #-> Point guard, shooting guard, small forward, forward, center
+						</code>
+					</div>
+					<h4>When to use instance methods</h4>
+					<p>Instance methods, then, are used when data varies from instance to instance. In the basketball example, this would be player names, numbers, etc.</p>
+					<div class="codeblock">
+						<code>
+							class BasketballTeam
+							<blockquote>
+								def self.positions
+								<blockquote>
+									puts "Point guard, shooting guard, small forward, forward, center"
+								</blockquote>
+								end
+								<br>
+								def initialize(pg, sg, sf, f, c)
+								<br>
+								<blockquote>
+									@pg = pg
+									<br>
+									@sg = sg
+									<br>
+									@sf = sf
+									<br>
+									@f  = f
+									<br>
+									@c  = c
+									<br>
+								</blockquote>
+								end
+								<br>
+								<br>
+								def point_guard
+								<br>
+								<blockquote>
+									puts "#{@pg}"
+								</blockquote>
+								end
+								<br>
+								<br>
+								def shooting_guard
+								<br>
+								<blockquote>
+									puts "#{@sg}"
+								</blockquote>
+								end
+								<br>
+								<br>
+								def small_forward
+								<br>
+								<blockquote>
+									puts "#{@sf}"
+								</blockquote>
+								end
+								<br>
+								<br>
+								def forward
+								<br>
+								<blockquote>
+									puts "#{@f}"
+								</blockquote>
+								end
+								<br>
+								<br>
+								def center
+								<blockquote>
+									puts "#{@c}"
+								</blockquote>
+								end
+								<br>
+								<br>
+								def starters
+								<blockquote>
+									puts "Point Guard: #{point_guard}\n Shooting Guard: #{shooting_guard}\n Small Forward: #{small_forward}\n Forward: #{forward}\n Center: #{center}"
+								</blockquote>
+								end
+							</blockquote>
+							end
+							<br>
+							<br>
+							MSU = BasketballTeam.new("Keith Appling", "Gary Harris", "Denzel Valentine", "Branden Dawson", "Adreian Payne")
+							<br>
+							<br>
+							MSU.starters #-> <br>Point Guard: Keith Appling<br>
+											 Shooting Guard: Gary Harris<br>
+											 Small Forward: Denzel Valentine<br>
+											 Forward: Branden Dawson<br>
+											 Center: Adreian Payne
+						</code>
+					</div>
+					<h4></h4>
+					<p></p>
+				</article>
+				<span id="end"><a href="../index.html">Take me back >></a></span>
+			</section>
+			</div>
+
+		</body>
+	</html>

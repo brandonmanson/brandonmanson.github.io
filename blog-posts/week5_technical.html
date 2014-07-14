@@ -23,16 +23,16 @@
 					<p>Let's look at this in a more comprehensive way. Let's say you wanted to quickly create a bracket for a basketball tournament that included the starting five players for each team.</p>
 					<h4>Let's make one</h4>
 					<p>Let's create our class</p>
-					
+					<div class="codeblock">
 					<code>
 						class BasketballTeam
 						<br>
 						<br>
 						end
 					</code>
-					
+					</div>
 					<p>Now we need to make it so that any new instance of BasketballTeam can take five players and make that data accessible. I'll expand on that in a minute.</p>
-					
+					<div class="codeblock">
 					<code>
 						class BasketballTeam
 						<br>
@@ -54,8 +54,9 @@
 						</blockquote>
 						end
 					</code>
-					
+					</div>
 					<p>Now let's make it so that you can quickly access each player's name by position (i.e. Point guard for Michigan State. Which makes me a little sad. He would have been an All-American if hadn't hurt his wrist). We'll define methods point_guard, shooting_guard, small_forward, forward and center that, when called for a new instance of class BasketballTeam, will return the name of the player.</p>
+					<div class="codeblock">
 					<code>
 						class BasketballTeam
 						<br>
@@ -116,7 +117,9 @@
 						</blockquote>
 						end
 					</code>
+					</div>
 					<p>Now let's create a few teams and grab individual players.</p>
+					<div class="codeblock">
 					<code>
 						class BasketballTeam
 						<br>
@@ -193,6 +196,7 @@
 						<br>
 						UK.point_guard #-> Andrew Harrison
 					</code>
+					</div>
 					<p>This is a simple demonstration of how a class works, but the benefits are obvious: we are making our code much more DRY and allowing ourselves tons of flexibility to change and upgrade our class later on as our needs change.</p>
 				</article>
 				<span id="end"><a href="../index.html">Take me back >></a></span>

@@ -67,7 +67,7 @@ h4 {
 	color: #5C5C5C;
 }
 
-.post p, a {
+.post p {
 	font-size: 1.5em;
 }
 
@@ -83,8 +83,11 @@ h5 {
 }
 .post {
 	max-width: 100%;
+}
 
 
+.codeblock {
+	background-color: #EBEBEB;
 }
 
 .featured {
@@ -95,5 +98,5 @@ h5 {
 #end {
 	padding-top: 7%;
 	padding-bottom: 7%;
+	color: #3CA1DA;
 }
-
