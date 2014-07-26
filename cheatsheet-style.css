@@ -1,10 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Arimo:400,700|Lobster);
 
-header > h1{
+header{
 	font-family: "Lobster", serif;
 	font-weight: 700;
 	text-align: center;
-	font-size: 4em;
+	font-size: 2.5em;
 	color: #66CDAA;
 }
 
