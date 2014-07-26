@@ -1,0 +1,88 @@
+@import url(http://fonts.googleapis.com/css?family=Arimo:400,700|Lobster);
+
+header > h1{
+	font-family: "Lobster", serif;
+	font-weight: 700;
+	text-align: center;
+	font-size: 4em;
+	color: #66CDAA;
+}
+
+.container {
+	max-width: 1000px;
+	padding: 0 5% 5% 5%;
+	margin-bottom: 7%;
+	padding-left: 10%;
+	display: block;
+}
+
+
+#intro {
+	font-family: "Arimo 400", Helvetica, sans-serif;
+	font-weight: 400;
+	color: #737373;
+	font-size: 1.2em;
+
+}
+
+.methods {
+	font-family: "Arimo 400", Helvetica, sans-serif;
+	font-weight: 400;
+	color: #737373;
+}
+
+.methods > h3 {
+	font-family: Helvetica, sans-serif;
+	font-weight: 100;
+	text-align: center;
+	font-size: 2.5em;
+	color: #4F4F4F;
+}
+
+.methods > code {
+	color: #4F4F4F;
+}
+footer {
+	width: 100%;
+	background: #E5E5E5;
+	height: 100px;
+	position: fixed;
+	z-index: 9999;
+	bottom: 0;
+	left: 0;
+	display: block;
+	clear: both;
+}
+
+nav {
+	width: 100%;
+	margin: auto;
+	padding-left: 10%;
+}
+
+.link {
+	display: block;
+	position: relative;
+	float: left;
+	padding: 2.5% 2.5% 0 0;
+}
+
+.link > a {
+	display: inline-block;
+	font-family: Helvetica, sans-serif;
+	font-weight: 100;
+	text-decoration: none;
+	color: #4F4F4F;
+	font-size: 1em;
+}
+
+.link > a:hover {
+	color: #66CDAA;
+}
+
+
+
+
+
+
+

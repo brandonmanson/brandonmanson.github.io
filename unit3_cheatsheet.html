@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="cheatsheet-style.css">
+	</head>
+	<body>
+		<header>
+			<h1>Ruby Enumerable Methods</h1>
+		</header>
+		<div class="container">
+		<section id="intro"><p>Many of the Ruby classes you’re used to are also enumerables (like Array, Set, Range, and Hash), and custom classes can use the enumerable module as well. The enumerable module provides a collection of methods for all of these classes, but each class must define how it handles them individually. We can’t iterate over an array the same way we would iterate over a hash, even though the methods will have a lot in common.</p><p>To get around this the enumerable module requires a class to define its own each method, which passes items to the code block. Then it’s possible to get at all the functionality the enumerable module offers without defining the rest of the enumerable methods individually.</p></section>
+		<section class="methods"><h3><a id="collect">Collect, Inject and Reduce</a></h3><p>Collect, inject, and reduce and different names for the same method––I’ll stick to using “collect” for simplicity. They work by first defining an accumulator value and then iterating over each item in the class. For each iteration, the accumulator is altered (or not) by the code block included with the method call, and the result is passed along on the next iteration.</p>
+		<p>As an example, collect gives us a succinct way of summing items in an array:</p>
+		<code>
+			<blockquote>a = [3, 5, 7, 9]</blockquote>
+			<blockquote>a.collect { |sum, n| sum + n }</blockquote>
+			<blockquote>#=> 24</blockquote>
+		</code>
+		<p>Here, “sum” is the name of our accumulator value, and “n” stands in whichever element of the array is part of the current iteration. If you don’t explicitly initialize an accumulator its value is assumed to be the first element in the iteration. The accumulator gets initialized as a variable passed in the method call. So writing the expression like this:</p>
+		<code>a.collect(0) { |sum, n| sum + n }</code>
+		<p>would give the same result.</p>
+		<p>In the first example, sum gets (implicitly) initialized as 3 and n gets set to 5 (the first element of the array). When the code block runs n is added to our accumulator, so that at the end of the first iteration sum = 8. By the end of second iteration n is 7 and sum = 15 . . . and so on until Array’s each method gets to the last element. The accumulator value is returned, so the entire collect call evaluates to 24.</p></section>
+		</div>
+		<footer>
+			<nav>
+				<ul>
+					<li class="link"><a href="#collect">#collect, #inject and #reduce</a></li>
+					<li class="link"><a href="#collect">#cycle</a></li>
+					<li class="link"><a href="#collect">#grep</a></li>
+					<li class="link"><a href="#collect">#map</a></li>
+					<li class="link"><a href="#collect">#min_by and #max_by</a></li>
+					<li class="link"><a href="#collect">#select</a></li>
+					<li class="link"><a href="#collect">#sort_by</a></li>
+					<li class="link"><a href="#collect">#lazy</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</body>
+</html>
