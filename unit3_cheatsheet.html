@@ -1,40 +1,144 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="cheatsheet-style.css">
-	</head>
-	<body>
-		<header>
-			<h1>Ruby Enumerable Methods</h1>
-		</header>
-		<div class="container">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="stylesheets/cheatsheet-style.css">
+</head>
+<body>
+	<header>
+		<h1>Ruby Enumerable Methods</h1>
+	</header>
+	<div class="container">
 		<section id="intro"><p>Many of the Ruby classes you’re used to are also enumerables (like Array, Set, Range, and Hash), and custom classes can use the enumerable module as well. The enumerable module provides a collection of methods for all of these classes, but each class must define how it handles them individually. We can’t iterate over an array the same way we would iterate over a hash, even though the methods will have a lot in common.</p><p>To get around this the enumerable module requires a class to define its own each method, which passes items to the code block. Then it’s possible to get at all the functionality the enumerable module offers without defining the rest of the enumerable methods individually.</p></section>
-		<section class="methods"><h3><a id="collect">Collect, Inject and Reduce</a></h3><p>Collect, inject, and reduce and different names for the same method––I’ll stick to using “collect” for simplicity. They work by first defining an accumulator value and then iterating over each item in the class. For each iteration, the accumulator is altered (or not) by the code block included with the method call, and the result is passed along on the next iteration.</p>
-		<p>As an example, collect gives us a succinct way of summing items in an array:</p>
-		<code>
-			<blockquote>a = [3, 5, 7, 9]</blockquote>
-			<blockquote>a.collect { |sum, n| sum + n }</blockquote>
-			<blockquote>#=> 24</blockquote>
-		</code>
-		<p>Here, “sum” is the name of our accumulator value, and “n” stands in whichever element of the array is part of the current iteration. If you don’t explicitly initialize an accumulator its value is assumed to be the first element in the iteration. The accumulator gets initialized as a variable passed in the method call. So writing the expression like this:</p>
-		<code>a.collect(0) { |sum, n| sum + n }</code>
-		<p>would give the same result.</p>
-		<p>In the first example, sum gets (implicitly) initialized as 3 and n gets set to 5 (the first element of the array). When the code block runs n is added to our accumulator, so that at the end of the first iteration sum = 8. By the end of second iteration n is 7 and sum = 15 . . . and so on until Array’s each method gets to the last element. The accumulator value is returned, so the entire collect call evaluates to 24.</p></section>
+
+		<section class="methods"><h3><a id="inject">Inject and Reduce</a></h3>
+			<p>Inject and reduce and different names for the same method––I’ll stick to using “inject” for simplicity.  They work by first defining an accumulator value and then iterating over each item in the class.  For each iteration, the accumulator is altered (or not) by the code block included with the method call, and the result is passed along on the next iteration.</p>
+			<p>As an example, inject gives us a succinct way of summing items in an array:</p>
+			<code>
+				<blockquote>a = [3, 5, 7, 9]</blockquote>
+				<blockquote>a.inject { |sum, n| sum + n }</blockquote>
+				<blockquote>#=> 24</blockquote>
+			</code>
+			<p>Here, “sum” is the name of our accumulator value, and “n” stands in whichever element of the array is part of the current iteration. If you don’t explicitly initialize an accumulator its value is assumed to be the first element in the iteration.  The accumulator gets initialized as a variable passed in the method call. So writing the expression like this</p>
+			<code>a.inject(0) { |sum, n| sum + n }</code>
+			<p>would give the same result.</p>
+			<p>In the first example, sum gets (implicitly) initialized as 3 and n gets set to 5 (the first element of the array).  When the code block runs n is added to our accumulator, so that at the end of the first iteration sum = 8.  By the end of second iteration n is 7 and sum = 15 . . . and so on until Array’s each method gets to the last element. The accumulator value is returned, so the entire inject call evaluates to 24.</p></section>
+
+			<section class="methods"><h3><a id="cycle">Cycle</a></h3>
+				<p>Like you would expect, #cycle cycles.  It passes each element of the enumerable to the code block, and keeps doing it as many times as you tell it to (in the method argument).  If you don’t include an argument, it goes on forever. Cycle always returns nil.</p>
+				<code>
+					<blockquote>a = ['x', 'y', 'z']</blockquote>
+					<blockquote>a.cycle(3) { |letter| print "#{letter.upcase}! " }</blockquote>
+					<blockquote>X! Y! Z! X! Y! Z! X! Y! Z! #=> nil</blockquote>
+				</code>
+			</section>
+
+			<section class="methods"><h3><a id="grep">Grep</a></h3>
+				<p>When you call grep on an enumerable, you pass a pattern as an argument.  The method then returns an array of every element in the enumerable which matches the pattern (using the === operator).  If you also supply a block, it will be executed on each element that matches the pattern and the block’s results will be returned in an array.</p>
+				<code>
+					<blockquote>(1..10).grep 5..9</blockquote>
+					<blockquote>#=> [5, 6, 7, 8, 9]</blockquote>
+					<br>
+					<blockquote>(1..10).grep(5..9) { |n| n*5 }</blockquote>
+					<blockquote>#=> [25, 30, 35, 40, 45]</blockquote>
+					<br>
+					<blockquote>turtles = [‘leonardo', ‘michelangelo', ‘donatello', ‘raphael'] </blockquote>
+					<blockquote>turtles.grep(/angel/) { |t| t.capitalize }</blockquote>
+					<blockquote>#=> ["Michelangelo"]</blockquote>
+				</code>
+				<p>Notice that grep is functionally equivalent to:</p>
+				<code>
+					<blockquote>enumerable.select { |element| pattern === element }</blockquote>
+				</code>
+			</section>
+
+			<section class="methods"><h3><a id="group_by">Group_by</a></h3>
+				<p>Takes an enumerable and returns a hash where keys are the results of calling the block and values are arrays of elements that produced each result.</p>
+				<code>
+					<blockquote>parasites = [‘hookworm’, ’trinchinella’, ‘loa loa’, ‘crab louse’, ‘lamprey’, ‘vampire bat’]</blockquote>
+					<blockquote>parasites.group_by { |p| p.size }</blockquote>
+					<br>
+					<blockquote>#=> { 8=>["hookworm", "tapeworm", "oxpecker"], 12=>["trinchinella"], 7=>["loa loa", "lamprey"], 10=>["crab louse", "head louse"], 11=>["vampire bat"] }</blockquote>
+					<br>
+					<blockquote>parasites.group_by { |p| p.size == 12 }</blockquote>
+					<blockquote>#=> {false=>["hookworm", "loa loa", "crab louse", "lamprey", "vampire bat", "tapeworm", "head louse", "oxpecker"], true=>["trinchinella"]} </blockquote>
+				</code>
+			</section>
+
+			<section class="methods"><h3><a id="partition">Partition</a></h3>
+				<p>Like group_by, partition groups elements based on some test.  But instead of returning a hash, partition returns two arrays organized by whether the code block returns true or false for the array (the true array is always returned first).</p>
+				<code>
+					<blockquote>parasites = [‘hookworm’, ’trinchinella’, ‘loa loa’, ‘crab louse’, ‘lamprey’, ‘vampire bat’]</blockquote>
+					<blockquote>parasites.partition { |p| p.size == 12 }</blockquote>
+					<blockquote>#=> [["trinchinella"], ["hookworm", "loa loa", "crab louse", "lamprey", "vampire bat", "tapeworm", "head louse", "oxpecker"]]</blockquote>
+				</code>
+			</section>
+
+			<section class="methods"><h3><a id="map">Map and Collect</a></h3>
+				<p>Map (aka collect) gets called with a block, and returns a new array with the result of running that block on each element of the enumerable.</p>
+				<code>
+					<blockquote>a = [49, 0, 33, 56, 19, 5]</blockquote>
+					<blockquote>a.map { |n| n % 4 }</blockquote>
+					<blockquote>#=> [1, 0, 1, 0, 3, 1]</blockquote>
+					<blockquote>a.map { |n| ‘phlebotomist’ }</blockquote>
+					<blockquote>#=> [‘phlebotomist’, ‘phlebotomist’, ‘phlebotomist’, ‘phlebotomist’, ‘phlebotomist’, ‘phlebotomist’]</blockquote>
+				</code>
+			</section>
+
+			<section class="methods"><h3><a id="min_by">Min_by and Max_by</a></h3>
+				<p>These methods return the element in the enumerable that represent the minimum or maximum value as defined by the code block.</p>
+				<code>
+					<blockquote>fruits = ['orange', 'apple', 'banana', 'blueberry', 'grape', 'mango']</blockquote>
+					<blockquote>fruits.min_by { |x| x.length }</blockquote>
+					<blockquote>#=> ‘apple’</blockquote>
+					<blockquote>fruits.max_by { |x| x.length }</blockquote>
+					<blockquote>#=> ‘blueberry’</blockquote>
+				</code>
+			</section>
+
+			<section class="methods"><h3><a id="select">Select and Reject</a></h3>
+				<p>Select picks out all the elements of the enumerable for which the code block evaluates to true.</p>
+				<code>
+					<blockquote>a = [10, 15, 20, 25, 30, 35, 40]</blockquote>
+					<blockquote>a.select { |n| n > 25 }</blockquote>
+					<blockquote>#=> [30, 35, 40] </blockquote>
+				</code>
+				<p>Reject does exactly the opposite and returns all the elements for which the code block evaluates to false.</p>
+				<code>
+					<blockquote>a.reject { |n| n > 25 }</blockquote>
+					<blockquote>#=> [10, 15, 20, 25]</blockquote>
+				</code>
+			</section>
+
+		<section class="methods"><h3><a id="sort">Sort and Sort_by</a></h3>
+				<p>Sort returns an array with all the elements sorted according to their own <=> method (if you’re calling the method on a class you created, you can define the comparison method).</p>
+				<code>
+					<blockquote>a = [00000, 15, 999, 3.00004563, 86]</blockquote>
+					<blockquote>a.sort</blockquote>
+					<blockquote>#=> [0, 3.00004563, 15, 86, 999]</blockquote>
+				</code>
+				<p>Sort_by allows us to sort an enumerable using custom sort method.  (We could also do this by passing a code block to sort, but sort_by takes care of some of the work by assuming you want to execute the same code on every element and compare them using the <=> operator.)</p>
+				<code>
+					<blockquote>a..sort_by { |n| n.to_s.size }</blockquote>
+					<blockquote>#=> [0, 15, 86, 999, 3.00004563]</blockquote>
+				</code>
+			</section>
+
 		</div>
 		<footer>
 			<nav>
 				<ul>
-					<li class="link"><a href="#collect">#collect, #inject and #reduce</a></li>
-					<li class="link"><a href="#collect">#cycle</a></li>
-					<li class="link"><a href="#collect">#grep</a></li>
-					<li class="link"><a href="#collect">#map</a></li>
-					<li class="link"><a href="#collect">#min_by and #max_by</a></li>
-					<li class="link"><a href="#collect">#select</a></li>
-					<li class="link"><a href="#collect">#sort_by</a></li>
-					<li class="link"><a href="#collect">#lazy</a></li>
+					<li class="link"><a href="#inject">#inject/#reduce</a></li>
+					<li class="link"><a href="#cycle">#cycle</a></li>
+					<li class="link"><a href="#grep">#grep</a></li>
+					<li class="link"><a href="#group_by">#group_by</a></li>
+					<li class="link"><a href="#partition">#partition</a></li>
+					<li class="link"><a href="#map">#map/#collect</a></li>
+					<li class="link"><a href="#min_by">#min_by/#max_by</a></li>
+					<li class="link"><a href="#select">#select/#reject</a></li>
+					<li class="link"><a href="#sort">#sort/#sort_by</a></li>
 				</ul>
 			</nav>
 		</footer>
 	</body>
-</html>
+	</html>
