@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>Static Typing vs. Dynamic Typing: What it means and how it affects your programs</title>
+			<meta charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href="../blog-style.css">
+		</head>
+		<body>
+			<header>
+				<a href="../index.html"><img id="logo"src="../b-logo.png"></a>
+			</header>
+			<div id="headline">
+				<h1>Static Typing vs. Dynamic Typing</h1>
+				<h3>What it means and how it affects your programs</h3>
+			</div>
+			<div class="container">
+			<!--<img class="featured" src="">-->
+			<section class="post">
+				<article>
+					<p>Anyone who has researched programming languages has probably come across discussion regarding dynamic or statically typed languages. It sounds intimidating and there aren't too many concise explanations out there to help someone understand exactly what these terms mean. In this very blog post, I will attempt to do just that.</p>
+					<h4>Typing</h4>
+					<p>Right, so let's get this out of the way first. The confusion for me, personally, actually came from the word "typed". I couldn't tell if this meant that actually writing programs differed from language to language in the text editor or if it meant something different. As it turns out, "type" and "typing" refers to the way a particular language handles data contained in variables.</p>
+					<h4>Static Typing</h4>
+					<p>Simply put, a statically typed language means that once you declare a variable that is an integer, string, float or any other kind of data, that variable cannot be changed again. Here's an example in C:</p>
+					<div class="codeblock">
+						<code>
+							<blockquote>
+								NSString *staticVar = @"a string";
+							</blockquote>
+							<blockquote>
+								staticVar = 2;
+							</blockquote>
+						</code>
+					</div>
+					<p>If you ran this code, you would get an error that said <code>Implicit conversion of 'int' to 'NSString *' is disallowed with ARC. </code>This is because we tried to assign an integer to a variable that was originally declared as a string.</p>
+					<h4>Dynamic Typing</h4>
+					<p>As you can probably infer, dynamic typing works the opposite way. In languages like Ruby and Python, you can assign a variable an inital value of an integer and later reassign it a string.</p>
+					<div class="codeblock">
+						<code>
+							<blockquote>
+								var = 2<br>
+								puts var<br>
+								2
+							</blockquote>
+							<blockquote>
+								var = "Look, now I'm a string"<br>
+								puts var<br>
+								"Look, now I'm a string"
+							</blockquote>
+						</code>
+					</div>
+					<p>See? That wasn't so bad, was it? It's actually a pretty simple concept to understand from a high level. There are a few other things to consider, although I won't go in depth about those here. Compile time vs. Runtime is an important consideration when differentiating between the two as they handle data processing differently. Statically typed languages use the compiler to check for errors before actually running the program, whereas dynamic languages only check for errors at runtime. There are advantages to both and that war has been raging on the forums for years.</p>
+					<p>Although this is a very short introduction to the concept, I hope it helps clarify some of the main concepts.</p>
+				</article>
+				<span id="end"><a href="../index.html">Take me back >></a></span>
+			</section>
+			</div>
+
+		</body>
+	</html>
